@@ -5,14 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 /**
- * A very simple (and not particularly useful)
- * test class to have a starting point where to put tests.
- *
- * @author Arie van Deursen
+ * Tests for verifying the directional movement deltas in {@link Direction}.
  */
 public class DirectionTest {
+
     /**
-     * Do we get the correct delta when moving north?
+     * Tests that moving north results in a negative Y delta.
      */
     @Test
     void testNorth() {
@@ -20,18 +18,27 @@ public class DirectionTest {
         assertThat(north.getDeltaY()).isEqualTo(-1);
     }
 
+    /**
+     * Tests that moving east results in a positive X delta.
+     */
     @Test
     void testEast() {
         Direction east = Direction.valueOf("EAST");
         assertThat(east.getDeltaX()).isEqualTo(1);
     }
 
+    /**
+     * Tests that moving south results in a positive Y delta.
+     */
     @Test
     void testSouth() {
         Direction south = Direction.valueOf("SOUTH");
         assertThat(south.getDeltaY()).isEqualTo(1);
     }
 
+    /**
+     * Tests that moving west results in a negative X delta.
+     */
     @Test
     void testWest() {
         Direction west = Direction.valueOf("WEST");

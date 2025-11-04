@@ -4,8 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for the {@link Board} class.
+ * Verifies board creation, dimensions, and behavior with valid and invalid inputs.
+ */
 class BoardTest {
 
+    /**
+     * Tests creation of a valid board and verifies its dimensions and content.
+     */
     @Test
     void testValidBoard() {
         Square[][] grid = new Square[1][1];
@@ -18,6 +25,9 @@ class BoardTest {
         assertThat(board.withinBorders(0, 0)).isTrue();
     }
 
+    /**
+     * Tests that creating a board with a null square throws an assertion error.
+     */
     @Test
     void testInvalidBoardSquareAt() {
         Square[][] grid = new Square[1][1];
@@ -26,7 +36,7 @@ class BoardTest {
             Board board = new Board(grid);
             board.squareAt(0, 0);
         } catch (AssertionError e) {
-           assertThat(e).hasMessageContaining("Initial grid cannot contain null squares");
+            assertThat(e).hasMessageContaining("Initial grid cannot contain null squares");
         }
     }
 }
