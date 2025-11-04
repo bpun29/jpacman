@@ -68,8 +68,9 @@ public class MapParserTest {
 
         String msg = thrown.getMessage().toLowerCase();
         Assertions.assertTrue(
-            msg.contains("width") || msg.contains("size") || msg.contains("invalid") || msg.contains("character"),
-            "Expected an exception message about inconsistent width or invalid map format, but got: " + msg
+            msg.contains("width") || msg.contains("size")
+                || msg.contains("invalid") || msg.contains("character"),
+            "Expected an exception message"
         );
     }
 
